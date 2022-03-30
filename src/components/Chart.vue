@@ -51,6 +51,8 @@ export default {
     radius: { type: Number, default: 50 },
     cx: { type: Number, default: 50 },
     cy: { type: Number, default: 50 },
+    max: { type: Number, default: 100 },
+    // min: { type: Number, default: 0 },
   },
   computed: {
     progressClass: function () {
@@ -74,7 +76,7 @@ export default {
     // },
     dashOffset: function () {
       const percent =
-        ((100 - this.displayValue * 0.75) / 100) * this.circumference;
+        ((this.max - this.displayValue * 0.75) / this.max) * this.circumference;
       return percent;
     },
     visualValue: function () {
@@ -143,12 +145,12 @@ svg.svg {
     color: $text-color;
     &__label {
       line-height: 1.35;
-      @apply leading-snug;
-      font-size: clamp(1.5rem, 4vw + 1rem, 6rem);
+      @apply leading-snug text-[5vw] md:text-[5vw] lg:text-[4vw] portrait:text-[6vw] landscape:text-[3vw];
+      /* font-size: clamp(1.5rem, 4vw + 1rem, 6rem); */
     }
     &__value {
-      @apply leading-tight;
-      font-size: clamp(2rem, 6vw + 1rem, 8rem);
+      @apply leading-tight text-[4vw] md:text-[6vw] lg:text-[3.5vw] portrait:text-[5vw] landscape:text-[2.5vw];
+      /* font-size: clamp(1vw, 6vw + 1rem, 3vw); */
     }
   }
 }

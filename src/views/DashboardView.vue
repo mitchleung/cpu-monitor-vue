@@ -28,6 +28,32 @@
           suffix="°C"
         />
       </div>
+      <div class="dashboard__grid__cell" v-if="this.$store.state.speed">
+        <ChartComponent
+          :displayValue="this.$store.state.rx_sec"
+          viewBox="0 0 100 100"
+          :radius="50"
+          :strokeWidth="5"
+          :cx="50"
+          :cy="50"
+          :max="this.$store.state.speed"
+          label="In"
+          suffix=" Mb/s"
+        />
+      </div>
+      <div class="dashboard__grid__cell" v-if="this.$store.state.speed">
+        <ChartComponent
+          :displayValue="this.$store.state.tx_sec"
+          viewBox="0 0 100 100"
+          :radius="50"
+          :strokeWidth="5"
+          :cx="50"
+          :cy="50"
+          :max="this.$store.state.speed"
+          label="Out"
+          suffix=" Mb/s"
+        />
+      </div>
       <DashboardBrainComponent apiPath="/api/all" apiPort="3000" />
     </div>
   </div>
@@ -51,14 +77,15 @@ export default {
   @apply w-full h-full px-4 overflow-x-hidden overflow-y-auto grid gap-0 grid-rows-[40px_1fr] md:grid-rows-[56px_1fr] lg:grid-rows-[64px_1fr];
 
   &__host {
-    @apply text-lg md:text-xl lg:text-2xl font-bold text-white/90 h-10 md:h-14 lg:h-16 flex justify-center items-center drop-shadow-lg;
+    @apply text-xs md:text-lg lg:text-2xl font-bold text-white/90 h-10 md:h-14 lg:h-16 flex justify-center items-center drop-shadow-lg;
   }
 
   &__grid {
-    @apply flex h-full items-center flex-wrap justify-center overflow-hidden;
+    /* @apply flex h-full items-center flex-wrap justify-center overflow-hidden; */
+    @apply grid gap-0 grid-rows-2 grid-cols-2 h-full items-center justify-center justify-items-center overflow-hidden;
 
     &__cell {
-      @apply p-0 m-0 landscape:w-1/2 portrait:w-10/12 md:w-1/2;
+      @apply p-0 m-auto justify-center items-center landscape:w-1/2 portrait:w-10/12 md:w-1/2;
     }
   }
 }

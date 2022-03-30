@@ -13,6 +13,12 @@ export default createStore({
     mem: null,
     cpuTemp: null,
     perCpuTemp: null,
+    rx_sec: 0,
+    tx_sec: 0,
+    speed: 0,
+    rx_bytes: 0,
+    tx_bytes: 0,
+    iface: "",
     config: JSON.parse(localStorage.getItem("config")) || defaultConfig,
     defaultConfig,
   },
@@ -27,6 +33,13 @@ export default createStore({
       state.cpuTemp = payload.cpuTemp;
       state.mem = payload.mem;
       state.perCpuTemp = payload.perCpuTemp;
+      state.perCpuTemp = payload.perCpuTemp;
+      state.iface = payload.iface;
+      state.speed = payload.speed;
+      state.rx_sec = payload.rx_sec;
+      state.tx_sec = payload.tx_sec;
+      state.rx_bytes = payload.rx_bytes;
+      state.tx_bytes = payload.tx_bytes;
     },
     setConfig(state, payload) {
       state.config.apiProtocol =

@@ -47,6 +47,11 @@ export default {
             cpu: Number(response.data.cpu.total),
             cpuTemp: Number(response.data.cpu.temp),
             perCpuTemp: perCpuTemp,
+            speed: Number(response.data.speed),
+            rx_sec: Number(response.data.rx_sec || 0) * 8e-6,
+            tx_sec: Number(response.data.tx_sec || 0) * 8e-6,
+            rx_bytes: Number(response.data.rx_bytes || 0) * 8e-6,
+            tx_bytes: Number(response.data.tx_bytes || 0) * 8e-6,
             // perCpuTemp: response.data.cpu.cores,
             mem: Number(response.data.mem.used / response.data.mem.total) * 100,
           });
@@ -58,6 +63,18 @@ export default {
   },
   mounted() {
     this.loading = true;
+    // set all value to zero to hide previous readings
+    this.$store.commit("setData", {
+      cpu: 0,
+      cpuTemp: 0,
+      perCpuTemp: [],
+      speed: 0,
+      rx_sec: 0,
+      tx_sec: 0,
+      rx_bytes: 0,
+      tx_bytes: 0,
+      mem: 0,
+    });
     this.$options.interval = setInterval(
       this.fetchData,
       this.$store.state.config.refreshRate
@@ -71,7 +88,7 @@ export default {
 
 <style scoped lang="scss">
 .dashboard-brain {
-  @apply w-full max-w-7xl h-full block;
+  @apply w-full max-w-7xl h-full block col-span-2 row-span-2;
 }
 .loading,
 .error {

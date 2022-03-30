@@ -60,7 +60,7 @@ body {
   height: var(--app-height);
 }
 #app {
-  @apply font-sans w-full h-screen overflow-hidden text-center antialiased grid gap-0 grid-rows-[56px_1fr];
+  @apply font-sans w-full h-screen overflow-hidden text-center antialiased grid gap-0 grid-rows-[56px_1fr] landscape:grid-rows-1 grid-cols-1 landscape:grid-cols-[56px_1fr];
 }
 @keyframes gradient {
   0% {
@@ -84,9 +84,9 @@ body {
 }
 
 .nav {
-  @apply flex justify-center h-14;
+  @apply flex flex-row landscape:flex-col justify-center items-center h-14 landscape:h-screen w-full landscape:w-14;
   a {
-    @apply font-bold block p-2 mx-4 md:mx-8 text-xl md:text-2xl text-gray-300 hover:text-gray-200 border-b-2 border-b-gray-200/0 hover:border-b-gray-200 drop-shadow-lg;
+    @apply font-bold block p-2 mx-4 landscape:mx-0 landscape:my-4 text-xl md:text-2xl text-gray-300 hover:text-gray-200 border-b-2 border-b-gray-200/0 hover:border-b-gray-200 drop-shadow-lg;
     &.router-link-exact-active {
       @apply text-white border-b-white;
     }
