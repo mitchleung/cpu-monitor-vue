@@ -96,6 +96,7 @@ $base-color: #ccc;
 $mask-color: #000;
 $text-color: #fff;
 $chart-size: 90%;
+@use 'sass:math';
 
 .chart {
   @apply p-[100%_0_0_0] overflow-hidden h-0 m-0 relative;
@@ -155,7 +156,7 @@ svg.svg {
   }
 }
 @for $i from 0 to 101 {
-  $rotation: $i * 360 / 100;
+  $rotation: math.div($i * 360, 100);
   $bar-color: nth($bar-colors, 1);
 
   .progress-#{$i} {

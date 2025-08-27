@@ -58,7 +58,7 @@
         type="submit"
         @click="saveConfig"
       >
-        <RefreshIcon class="button-icon" aria-hidden="true" />
+        <ArrowPathIcon class="button-icon" aria-hidden="true" />
         <span class="button-label">Save</span>
       </button>
       <button
@@ -68,7 +68,7 @@
         type="button"
         @click="cancelEditConfig"
       >
-        <RefreshIcon class="button-icon" aria-hidden="true" />
+        <ArrowPathIcon class="button-icon" aria-hidden="true" />
         <span class="button-label">Cancel</span>
       </button>
     </div>
@@ -76,11 +76,11 @@
 </template>
 
 <script>
-import { RefreshIcon } from "@heroicons/vue/solid";
+import { ArrowPathIcon } from "@heroicons/vue/24/solid";
 
 export default {
   name: "SettingsForm",
-  components: { RefreshIcon },
+  components: { ArrowPathIcon },
   data() {
     return {
       error: null,

@@ -1,24 +1,24 @@
 <template>
   <nav class="nav">
-    <router-link to="/"><ViewGridIcon class="nav__icon" /></router-link>
+    <router-link to="/"><ViewColumnsIcon class="nav__icon" /></router-link>
     <router-link to="/about"
       ><InformationCircleIcon class="nav__icon"
     /></router-link>
     <router-link to="/settings"
-      ><ViewBoardsIcon class="nav__icon"
+      ><Cog6ToothIcon class="nav__icon"
     /></router-link>
   </nav>
   <router-view />
 </template>
 <script>
 import {
-  ViewGridIcon,
+  ViewColumnsIcon,
   InformationCircleIcon,
-  ViewBoardsIcon,
-} from "@heroicons/vue/solid";
+  Cog6ToothIcon,
+} from "@heroicons/vue/24/solid";
 
 export default {
-  components: { ViewGridIcon, InformationCircleIcon, ViewBoardsIcon },
+  components: { ViewColumnsIcon, InformationCircleIcon, Cog6ToothIcon },
   methods: {
     appHeight() {
       const doc = document.documentElement;
