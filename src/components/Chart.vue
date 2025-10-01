@@ -97,6 +97,7 @@ $mask-color: #000;
 $text-color: #fff;
 $chart-size: 90%;
 @use 'sass:math';
+@use 'sass:list';
 
 .chart {
   @apply p-[100%_0_0_0] overflow-hidden h-0 m-0 relative;
@@ -157,13 +158,13 @@ svg.svg {
 }
 @for $i from 0 to 101 {
   $rotation: math.div($i * 360, 100);
-  $bar-color: nth($bar-colors, 1);
+  $bar-color: list.nth($bar-colors, 1);
 
   .progress-#{$i} {
     @if $i > 80 {
-      $bar-color: nth($bar-colors, 3);
+      $bar-color: list.nth($bar-colors, 3);
     } @else if ($i > 50) {
-      $bar-color: nth($bar-colors, 2);
+      $bar-color: list.nth($bar-colors, 2);
     }
     svg circle.active {
       stroke: rgba($bar-color, 0.85);
