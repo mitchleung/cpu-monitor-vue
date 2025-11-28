@@ -45,10 +45,10 @@ body {
 html {
   background: linear-gradient(
     -45deg,
-    nth($bgColors, 1) 1%,
-    nth($bgColors, 2) 45%,
-    nth($bgColors, 3) 65%,
-    nth($bgColors, 4) 95%
+    $bgColors[1] 1%,
+    $bgColors[2] 45%,
+    $bgColors[3] 65%,
+    $bgColors[4] 95%
   );
   background-size: 120%;
   -webkit-animation: gradient $animeTime ease infinite alternate-reverse;
